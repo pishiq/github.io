@@ -18,8 +18,8 @@ email: sina.gholizadeh@outlook.com
 description: A curious cat
 # show_downloads: true
 # google_analytics:
-# baseurl: "" # the subpath of your site, e.g. /blog
-# url: "" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 # github_username:  jekyll
 
