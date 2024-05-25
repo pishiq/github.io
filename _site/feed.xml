@@ -1,1 +1,73 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-19T01:17:10+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">pişiQ</title><subtitle>A curious cat</subtitle></feed>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-05-25T12:21:15+10:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">pişiQ</title><subtitle>pişiQ is a project brewing educational tools and research explorations to demystify the fascinating world of quantum mechanics. Stay tuned!</subtitle><entry><title type="html">Running Mathematica Script via SSH with tmux</title><link href="http://localhost:4000/jekyll/update/2024/05/18/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Running Mathematica Script via SSH with tmux" /><published>2024-05-18T00:19:50+10:00</published><updated>2024-05-18T00:19:50+10:00</updated><id>http://localhost:4000/jekyll/update/2024/05/18/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2024/05/18/welcome-to-jekyll.html"><![CDATA[<h2 id="why-tmux-is-recommended">Why tmux is Recommended</h2>
+
+<p><code class="language-plaintext highlighter-rouge">tmux</code> is a powerful yet straightforward solution for running long-running processes on a remote workstation. It offers:</p>
+
+<ol>
+  <li><strong>Persistence</strong>: <code class="language-plaintext highlighter-rouge">tmux</code> sessions persist even if the connection drops, allowing you to reconnect and continue where you left off.</li>
+  <li><strong>Session Management</strong>: <code class="language-plaintext highlighter-rouge">tmux</code> provides robust session management, allowing multiple windows and panes within a single SSH connection.</li>
+  <li><strong>Reattaching Sessions</strong>: It’s easy to detach and reattach to <code class="language-plaintext highlighter-rouge">tmux</code> sessions, which is useful for long-running processes like Mathematica scripts.</li>
+</ol>
+
+<h2 id="installing-tmux">Installing tmux</h2>
+
+<p>If <code class="language-plaintext highlighter-rouge">tmux</code> is not already installed on your workstation, you can install it using your package manager. For example:</p>
+
+<ul>
+  <li>
+    <p><strong>Ubuntu/Debian</strong>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get <span class="nb">install </span>tmux
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>CentOS/RHEL</strong>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>yum <span class="nb">install </span>tmux
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+<h2 id="using-tmux">Using tmux</h2>
+
+<ol>
+  <li>
+    <p><strong>Start a <code class="language-plaintext highlighter-rouge">tmux</code> session</strong>:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tmux
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><strong>Run your Mathematica script</strong>:</p>
+  </li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>math <span class="nt">-script</span> file.m
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p><strong>Detach from the tmux session</strong>:
+Press <code class="language-plaintext highlighter-rouge">Ctrl-B</code> followed by <code class="language-plaintext highlighter-rouge">D</code>. This detaches the session, but the script continues to run.</p>
+  </li>
+  <li>
+    <p><strong>Log out from the SSH session</strong>:
+You can now safely log out without stopping the script.</p>
+  </li>
+  <li>
+    <p><strong>Reattach to the <code class="language-plaintext highlighter-rouge">tmux</code> session</strong>:
+When you log back in via SSH, reattach to your <code class="language-plaintext highlighter-rouge">tmux</code> session with:</p>
+  </li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tmux attach-session <span class="nt">-t</span> 0
+</code></pre></div></div>
+
+<p>If you have multiple <code class="language-plaintext highlighter-rouge">tmux</code> sessions, list them with:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tmux <span class="nb">ls</span>
+</code></pre></div></div>
+
+<p>Then attach to the desired session by its ID:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tmux attach-session <span class="nt">-t</span> <span class="o">[</span>session_id]
+</code></pre></div></div>]]></content><author><name></name></author><category term="jekyll" /><category term="update" /><summary type="html"><![CDATA[Why tmux is Recommended]]></summary></entry></feed>
